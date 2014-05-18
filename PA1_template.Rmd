@@ -2,19 +2,27 @@
 
 
 ## Loading and preprocessing the data
-
+```{r}
+data<-read.csv("activity.csv", header=T, colClasses=c("numeric", "character", "numeric"))
+head(data)
+summary(data)
+str(data)
+```
 
 
 ## What is mean total number of steps taken per day?
+```{r}
+hist(tapply(data$steps,data$date,sum,na.rm=TRUE),breaks=6,col="light green")
 
+mean(data$steps,na.rm=T)
+median(data$steps,na.rm=T)
+```
 
 
 ## What is the average daily activity pattern?
 
 
-
 ## Imputing missing values
-
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
